@@ -16,7 +16,7 @@
 
 	<?php intern_journal_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="container">
 		<?php
 		the_content();
 
@@ -25,7 +25,7 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div><!-- .container -->
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">

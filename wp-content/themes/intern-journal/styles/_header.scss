@@ -1,0 +1,199 @@
+@import "_variables.scss";
+
+header {
+    background: #fff;
+    padding: rem(50px) rem(39px) 0;
+    margin: 0 auto rem(40px);
+    color: #fff;
+    a {
+        @include link(#fff, #aaa, #c3a622, #04284a, 0px);
+    }
+    nav {
+        text-align: center;
+        position: relative;
+        z-index: 3;
+        padding: rem(15px) 0 rem(19px);
+    }
+    a.header__link--main-page {
+        font: 600 rem(26.5px) Montserrat, sans-serif;
+        line-height: 1.3;
+        display: inline-block;
+        @include link(#fff, #ddd, #fff, #315591, 2px);
+    }
+    .wrapper {
+        background-color: #04284a;
+        max-width: $container-width-px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .container {
+        border: #10bc31 solid rem(15px);
+        border-bottom: none;
+        margin: 0 rem(50px);
+        padding: rem(34px) rem(36px) rem(14px);
+    }
+}
+.header--photo {
+    width: rem(500px);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.header--label {
+    font-size: rem(20px);
+    line-height: 1;
+    span {
+        background-color: #10bc31;
+        color: #000;
+        display: inline-block;
+        padding: rem(4px) rem(10px) rem(8px);
+    }
+}
+.header--title {
+    max-width: rem(470px);
+    margin: 0;
+    padding: rem(5px) 0 0 0;
+    position: relative;
+    z-index: 1;
+}
+
+.header--lead {
+    font-size: rem(20px);
+    line-height: 1.25;
+    max-width: rem(470px);
+    padding-top: rem(18px);
+    position: relative;
+    z-index: 1;
+    p {
+        font-size: inherit;
+        line-height: inherit;
+    }
+    p:first-child {
+        padding-top: 0;
+    }
+    p:last-child {
+        padding-bottom: 0;
+    }
+}
+
+.header--links {
+    font-size: rem(14px);
+    padding: rem(131px) 0 rem(8px);
+    background-size: rem(38px) rem(73px);
+    display: flex;
+    position: relative;
+    z-index: 1;
+    a {
+        margin-bottom: rem(8px);
+    }
+    a + a {
+        margin-left: rem(16px);
+    }
+}
+.header--link__course {
+    margin-right: rem(10px);
+}
+
+header.designer {
+    background: #d14231 url(../img/bg-designers.jpg) top left/cover no-repeat;
+    .wrapper {
+        background-color: #04284a;
+    }
+    .container {
+        border-color: #ffea00;
+    }
+    .header--label span {
+        background-color: #ffea00;
+    }
+    .header--photo {
+        max-width: rem(600px);
+    }
+    .header--links {
+        align-items: baseline;
+        padding-top: rem(20px);
+        &:before {
+            content: "";
+            background: url(../img/icon-designer.png) bottom left/rem(38px) rem(73px) no-repeat;
+            display: inline-block;
+            width: rem(54px);
+            height: rem(73px);
+            position: relative;
+            bottom: rem(-14px);
+        }
+    }
+}
+header.qa {
+    background: #315591 url(../img/bg-qa.png) top left/rem(350px) rem(350px) repeat;
+    .wrapper {
+        background-color: #04284a;
+    }
+    .container {
+        border-color: #10bc31;
+    }
+    .header--label span {
+        background-color: #10bc31;
+    }
+    .header--photo {
+        width: rem(659px);
+    }
+}
+
+@media only screen and (max-width: $width-breakpoint) {
+    header {
+        background: #04284a;
+        padding: 0;
+    }
+    .header--photo {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 750px) {
+    header {
+        background: #04284a;
+        padding: 0;
+        .container {
+            padding-bottom: 0;
+        }
+    }
+    .header--lead,
+    .header--title {
+        max-width: 750px;
+    }
+    .header--title {
+        word-wrap: break-word;
+    }
+    .header--links {
+        flex-wrap: wrap;
+        line-height: 1.5;
+        padding: rem(30px) 0 rem(14px)!important;
+        margin-left: rem(-15px);
+        &:before {
+            display: none!important;
+        }
+    }
+    .header--link__course {
+        white-space: nowrap;
+        margin: 0 0 0 rem(15px);
+        flex: 0 0 100%;
+    }
+    .header--photo {
+        position: static;
+        width: 70%;
+        display: block;
+        margin: 1rem auto 0;
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    header {
+        .container {
+            border: none;
+            margin: 0;
+            padding: 0 rem(30px);
+        }
+    }
+    .header--title {
+        font-size: rem(50px);
+    }
+}

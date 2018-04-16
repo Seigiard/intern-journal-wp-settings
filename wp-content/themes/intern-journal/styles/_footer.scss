@@ -1,0 +1,93 @@
+@import '_variables.scss';
+
+footer {
+  padding: rem(40px) 0 rem(60px);
+  .footer-container {
+    margin: 0 $small-screen-padding;
+    @media only screen and (min-width: $width-breakpoint+1) {
+      max-width: $article-width;
+      margin: 0 auto;
+    }
+
+    .likely + p {
+        padding-top: rem(20px);
+    }
+  }
+  p.credits {
+    padding: rem(20px) 0 rem(15px);
+  }
+  .credits--list {
+    margin: 0;
+    padding: 0 0 rem(20px);
+    list-style-type: none;
+    li {
+      margin: 0;
+      padding: 0 0 rem(15px);
+      &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: bottom;
+        width: rem(22px);
+        height: rem(22px);
+        background: #fff url(../img/ico-telegram.png) center center no-repeat;
+        background-size: rem(22px) rem(22px);
+      }
+    }
+  }
+}
+.footer-copyright {
+  font-size: rem(18px);
+  display: flex;
+  .article aside {
+    padding-top: 0;
+  }
+  p {
+    font-size: inherit;
+  }
+}
+.footer-copyright--column1 {
+  flex: 1 0 40%;
+  min-width: 200px
+}
+.footer-copyright--column2 {
+  flex: 1 0 60%;
+  min-width: 200px
+}
+
+@media only screen and (min-width: $width-breakpoint+1) {
+  .footer-copyright .article aside {
+    padding-left: 0;
+    width: 40%;
+  }
+}
+
+.article-teasers {
+  max-width: $container-width;
+  margin: 0 auto;
+}
+.article-teaser-list {
+  margin: 0 rem(-20px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: flex-start;
+}
+.article-teaser {
+  flex: 1;
+  width: 0;
+  margin: 0 rem(20px) rem(40px) rem(20px);
+  min-width: 320px;
+}
+@media only screen and (max-width: 667px) {
+  .article-teaser-list {
+    display: block;
+    margin: 0;
+  }
+  .article-teaser {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}

@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('container'); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -31,7 +31,7 @@
 
 	<?php intern_journal_post_thumbnail(); ?>
 
-	<div class="entry-content">
+		<div class="article">
 		<?php
 		the_content( sprintf(
 			wp_kses(
@@ -51,7 +51,7 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div><!-- .article -->
 
 	<footer class="entry-footer">
 		<?php intern_journal_entry_footer(); ?>
