@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('container'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -29,9 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php intern_journal_post_thumbnail(); ?>
-
-		<div class="article">
+	<?php //intern_journal_post_thumbnail(); ?>
 		<?php
 		the_content( sprintf(
 			wp_kses(
@@ -51,9 +49,8 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .article -->
 
 	<footer class="entry-footer">
-		<?php intern_journal_entry_footer(); ?>
+		<?php //intern_journal_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

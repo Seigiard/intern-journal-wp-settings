@@ -11,10 +11,8 @@
 
 ?>
 
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
+	<footer id="colophon" class="site-footer container">
+		<div class="site-info article">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'intern-journal' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
@@ -28,7 +26,6 @@
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 
