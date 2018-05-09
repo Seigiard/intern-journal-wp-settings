@@ -23,6 +23,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import 'styles/normalize.css';
 @import 'styles/main.css';
 @import 'styles/article.css';
+@import 'styles/helvetica/font.css';
 
 .teaser {
   padding: 0 0 2rem 0;

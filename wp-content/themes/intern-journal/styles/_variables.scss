@@ -1,17 +1,26 @@
 @function rem($px) {
   @return ($px / $base-font-size) * 1rem;
 }
-@mixin link($link-color, $link-border-color, $link-hover-color, $bg-color, $padding-bottom) {
+
+@mixin link($link-color, $link-active-color, $bg-color: #fff, $padding-bottom: 1px) {
+  $link-border-color: rgba($link-color, .2);
+  $link-hover-border-color: rgba($link-color, .4);
+  $link-active-border-color: rgba($link-active-color, .4);
+  $border-height: if($padding-bottom < 1px, 1px, rem(1px + $padding-bottom));
+
   color: $link-color;
-  background: linear-gradient($link-border-color 1px, transparent 1px);
-  background-size: 1px rem($padding-bottom + 1px);
+  background-image: linear-gradient($link-border-color, $link-border-color 1px, transparent 1px, transparent);
+  background-size: 1px $border-height;
   background-position: left bottom;
   background-repeat: repeat-x;
   text-shadow: -1px 0 $bg-color, 1px 0 $bg-color;
   text-decoration: none;
-  &:hover, &:focus {
-      color: $link-hover-color;
-      background: none;
+  &:hover {
+    background-image: linear-gradient($link-hover-border-color, $link-hover-border-color 1px, transparent 1px, transparent);
+  }
+  &:active {
+    color: $link-active-color;
+    background-image: linear-gradient($link-active-border-color, $link-active-border-color 1px, transparent 1px, transparent);
   }
 }
 @mixin link-reset() {
@@ -19,15 +28,13 @@
   text-shadow: none;
 }
 
-$base-font-size: 20px;
-$container-width-px: 1060px;
-$article-width-px: 650px;
+$base-font-size: 22px;
+$container-width-px: 1080px;
+$article-width-px: 755px;
 
+$base-font-size-rem: rem($base-font-size);
 $container-width: rem($container-width-px);
-$article-width: rem($article-width-px);
-$article-padding: 50%*(1-$article-width/$container-width);
-$article-negative-offset: 100%*(($article-width - $container-width)/2)/$article-width;
 $width-breakpoint: 800px;
-$small-screen-padding: 22px;
 $link-color: #315591;
+$link-hover-color: #c3a622;
 $link-border-color: #C3CCDC;

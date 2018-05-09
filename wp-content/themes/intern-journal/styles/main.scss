@@ -10,12 +10,19 @@ html {
     font-size: $base-font-size - 2px;
   }
   @media only screen and (max-width: $width-breakpoint) {
-    font-size: $base-font-size - 2.5px;
+    font-size: $base-font-size - 3px;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: $base-font-size - 6px;
   }
 }
 
+body {
+    background-color: #fff8f3;
+}
+
 a {
-    @include link($link-color, $link-border-color, $link-color, #fff, 2px);
+    @include link($link-color, $link-hover-color);
 }
 
 @import "_typography.scss";
@@ -28,7 +35,7 @@ a {
     border: 1px solid $link-color;
     border-radius: rem(5px);
     text-decoration: none;
-    padding: rem(5px) rem(10px);
+    padding: 0.25rem 0.45455rem 0.25rem;
     font-size: rem(24px);
     &:hover, &:focus {
         background: $link-color;

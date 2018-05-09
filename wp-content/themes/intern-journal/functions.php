@@ -105,9 +105,26 @@ add_action( 'after_setup_theme', 'intern_journal_content_width', 0 );
  */
 function intern_journal_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'intern-journal' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'intern-journal' ),
+		'name'          => esc_html__( 'Footer Anounce', 'intern-journal' ),
+		'id'            => 'footer-anounce',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Copyright', 'intern-journal' ),
+		'id'            => 'footer-copyright',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Text', 'intern-journal' ),
+		'id'            => 'footer-text',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -122,15 +139,20 @@ add_action( 'widgets_init', 'intern_journal_widgets_init' );
 function intern_journal_scripts() {
 	wp_enqueue_style( 'intern-journal-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'intern-journal-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'intern-journal-vendor-jquery', get_template_directory_uri() . '/js/vendor/jquery-3.2.1.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'intern-journal-vendor-resizeObserver', get_template_directory_uri() . '/js/vendor/resizeObserver.js', array(), '20151215', true );
+	wp_enqueue_script( 'intern-journal-plugins', get_template_directory_uri() . '/js/plugins.js', array(), '20151215', true );
+	wp_enqueue_script( 'intern-journal-main', get_template_directory_uri() . '/js/main.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'intern-journal-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	// wp_enqueue_script( 'intern-journal-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	// wp_enqueue_script( 'intern-journal-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+}
+function intern_journal_likely_scripts() {
+	wp_enqueue_style( 'intern-journal-likely-style', get_template_directory_uri() . '/js/vendor/likely/likely.css' );
+	wp_enqueue_script( 'intern-journal-likely-script', get_template_directory_uri() . '/js/vendor/likely/likely.js', array(), '20151215', true );
 }
 add_action( 'wp_enqueue_scripts', 'intern_journal_scripts' );
+add_action( 'wp_enqueue_scripts', 'intern_journal_likely_scripts' );
 
 /**
  * Implement the Custom Header feature.
