@@ -97,7 +97,6 @@ function intern_journal_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'intern_journal_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'intern_journal_content_width', 0 );
-
 /**
  * Register widget area.
  *
@@ -137,7 +136,10 @@ add_action( 'widgets_init', 'intern_journal_widgets_init' );
  * Enqueue scripts and styles.
  */
 function intern_journal_scripts() {
-	wp_enqueue_style( 'intern-journal-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'intern-journal-style-normalize', get_template_directory_uri() . '/styles/normalize.css?20180512' );
+	wp_enqueue_style( 'intern-journal-style-main', get_template_directory_uri() . '/styles/main.css?20180512' );
+	wp_enqueue_style( 'intern-journal-style-article', get_template_directory_uri() . '/styles/article.css?20180512' );
+	wp_enqueue_style( 'intern-journal-style-helvetica', get_template_directory_uri() . '/styles/helvetica/font.css?20180512' );
 
 	wp_enqueue_script( 'intern-journal-vendor-jquery', get_template_directory_uri() . '/js/vendor/jquery-3.2.1.min.js', array(), '20151215', true );
 	wp_enqueue_script( 'intern-journal-vendor-resizeObserver', get_template_directory_uri() . '/js/vendor/resizeObserver.js', array(), '20151215', true );
@@ -170,13 +172,18 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Typography and other stuffs
+ */
+require get_template_directory() . '/inc/beautypo/index.php';
+
+/**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
+// if ( defined( 'JETPACK__VERSION' ) ) {
+// 	require get_template_directory() . '/inc/jetpack.php';
+// }

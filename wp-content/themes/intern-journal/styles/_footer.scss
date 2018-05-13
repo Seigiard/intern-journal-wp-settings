@@ -31,13 +31,7 @@ footer {
 .release-group {
   padding: $base-font-size-rem 0 0;
   ul {
-    margin: 0;
-    padding: 0 0 rem(20px);
-    list-style-type: none;
-    li {
-      margin: 0;
-      padding: 0 0 rem(15px);
-    }
+    padding-left: $base-font-size-rem * 0.7;
     a {
       &:before {
         $icon-size: $base-font-size-rem;

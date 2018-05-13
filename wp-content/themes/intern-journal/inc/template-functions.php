@@ -36,9 +36,12 @@ function intern_journal_pingback_header() {
 }
 add_action( 'wp_head', 'intern_journal_pingback_header' );
 
+function typograph($text) {
+	echo EMT_run($text);
+}
 
 function get_field_wrapped($field, $className) {
 	echo '<div class="'.$className.'">';
-	the_field($field);
+	echo typograph(get_field($field));
 	echo '</div>';
 }

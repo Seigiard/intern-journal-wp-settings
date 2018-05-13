@@ -176,7 +176,7 @@ msgstr ""
 #: inc/template-tags.php:35
 #. translators: %s: post author.
 msgctxt "post author"
-msgid "by %s"
+msgid "Беседовал %s"
 msgstr ""
 
 #: inc/template-tags.php:59

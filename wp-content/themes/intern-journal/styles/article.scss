@@ -1,25 +1,5 @@
 @import '_variables.scss';
 
-$container-width: 1080px;
-$container-aside-width-px: 225px;
-$container-column-width-px: 755px;
-$container-padding-px: 40px;
-
-@function inPercent($px, $width) {
-  @return (100 * $px / $width) * 1%;
-}
-
-@mixin column() {
-  @media only screen and (min-width: $width-breakpoint) {
-    width: $container-column-width;
-  }
-  padding-left: $container-padding;
-  padding-right: $container-padding;
-}
-
-$container-column-width: inPercent($container-column-width-px, $container-width);
-$container-padding: inPercent($container-padding-px, $container-width);
-
 .container {
   max-width: $container-width;
   margin: 0 auto;
@@ -27,7 +7,9 @@ $container-padding: inPercent($container-padding-px, $container-width);
 .column {
   @include column();
   position: relative;
-
+  img {
+    height: auto;
+  }
   img.border {
     border: 1px solid #d7d5d7;
   }
@@ -50,14 +32,6 @@ $container-padding: inPercent($container-padding-px, $container-width);
       content: '123';
     }
   }
-  figure.full {
-    margin-left: -3.95%;
-    margin-right: -3.95%;
-    figcaption {
-      padding-left: 5.4%;
-      padding-right: 5.4%;
-    }
-  }
 
   aside {
     opacity: 0;
@@ -67,29 +41,6 @@ $container-padding: inPercent($container-padding-px, $container-width);
     animation: asideShow ease-in-out .5s;
     animation-iteration-count: 1;
     opacity: 1;
-  }
-
-  @media only screen and (min-width: $width-breakpoint) {
-    .full {
-      margin-right: -48.1%;
-    }
-    blockquote {
-      margin-right: -48.1%;
-    }
-    figure.full {
-      margin-left: -5.9%;
-      margin-right: -54%;
-      figcaption {
-        @include column();
-      }
-    }
-    aside {
-      position: absolute;
-      width: 37.9%;
-      left: 100%;
-      padding-top: rem(6px);
-      padding-left: $base-font-size-rem;
-    }
   }
 }
 @keyframes asideShow{

@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('column'); ?>>
 	<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	<?php //intern_journal_post_thumbnail(); ?>
 

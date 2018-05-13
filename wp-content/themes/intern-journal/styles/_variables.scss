@@ -2,6 +2,10 @@
   @return ($px / $base-font-size) * 1rem;
 }
 
+@function inPercent($px, $width) {
+  @return (100 * $px / $width) * 1%;
+}
+
 @mixin link($link-color, $link-active-color, $bg-color: #fff, $padding-bottom: 1px) {
   $link-border-color: rgba($link-color, .2);
   $link-hover-border-color: rgba($link-color, .4);
@@ -38,3 +42,19 @@ $width-breakpoint: 800px;
 $link-color: #315591;
 $link-hover-color: #c3a622;
 $link-border-color: #C3CCDC;
+
+$container-width: 1080px;
+$container-aside-width-px: 225px;
+$container-column-width-px: 755px;
+$container-padding-px: 40px;
+
+$container-column-width: inPercent($container-column-width-px, $container-width);
+$container-padding: inPercent($container-padding-px, $container-width);
+
+@mixin column() {
+  @media only screen and (min-width: $width-breakpoint) {
+    width: $container-column-width;
+  }
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
