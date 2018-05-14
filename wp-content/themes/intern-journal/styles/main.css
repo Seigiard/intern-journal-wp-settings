@@ -168,7 +168,7 @@ header nav ul {
   padding-top: 2.63636rem;
   padding-bottom: 0.31818rem;
   font-size: 1.63636rem;
-  line-height: 2.13636rem; }
+  line-height: 1.3; }
   @media only screen and (min-width: 800px) {
     .lead.full {
       padding-right: 20%; } }

@@ -19,7 +19,7 @@ header {
   padding-top: rem(58px);
   padding-bottom: rem(7px);
   font-size: rem(36px);
-  line-height: rem(47px);
+  line-height: 1.3;
   @media only screen and (min-width: $width-breakpoint) {
     &.full {
       padding-right: 20%;
