@@ -14,6 +14,13 @@
 !CHANGELOG.md
 !composer.json
 
+# Track the isolated anti-slop lint setup.
+!/.oxlintrc.json
+!/package.json
+!/.github/
+!/tools/
+!/tools/oxlint/.gitignore
+
 # ignore OS generated files
 ehthumbs.db
 Thumbs.db
